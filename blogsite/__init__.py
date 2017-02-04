@@ -12,6 +12,7 @@ app.config.from_pyfile('config.py')
 # Create the database handler using the flask application
 db = SQLAlchemy(app)
 
+# db object needs to exist before this
 from .views import views
 
 # Registering views blueprint
