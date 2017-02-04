@@ -1,6 +1,7 @@
 """The views of the blogsite application."""
 from flask import Blueprint, render_template
 
+# Creating the views blueprint
 views = Blueprint('views', __name__)
 
 
