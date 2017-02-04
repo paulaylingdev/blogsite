@@ -33,4 +33,4 @@ class Post(db.Model):
 
     def __repr__(self):
         """Representation."""
-        return '<Post %r:%r>' % self.id, self.title
+        return '<Post %r:%r>' % (self.id, self.title)
