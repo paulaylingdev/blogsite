@@ -40,8 +40,8 @@ class Post(db.Model):
             Contents
         category : Category
             Category object blog post is related to
-        pub_date : DateTime
-            Optional
+        pub_date : DateTime, optional
+            Publish date of blog post
         """
         self.title = title
         self.body = body
