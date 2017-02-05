@@ -7,6 +7,8 @@
 
 {% for post in posts %}
 <h2>{{ post.title }}</h2>
+<p>{{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}</p>
+<p>{{ post.category.name }}</p>
 <p>{{ post.body }}</p>
 {% endfor %}
 
