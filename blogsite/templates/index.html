@@ -5,6 +5,8 @@
 
 {% block body %}
 
+{{ super() }}
+
 {% for post in posts %}
 <h2>{{ post.title }}</h2>
 <p>{{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}</p>
