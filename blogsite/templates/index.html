@@ -11,7 +11,7 @@
   <hr>
   <h2>{{ post.title }}</h2>
   <hr>
-  <p>{{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}</p>
+  <p>{{ post.pub_date.strftime('%H:%M %d %B %Y') }}</p>
     {% for tag in post.tags %}
     <span>{{ tag.name }}<span>
     {% endfor %}

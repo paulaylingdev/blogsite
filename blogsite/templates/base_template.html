@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
+
 <body>
-  {% block body %}
-    <h1>Blogsite</h1>
-  {% endblock %}
-  <hr>
-  <footer>
-      <section>
-      <p>Powered by <a href="http://flask.pocoo.org">Flask</a></p>
-      <p>Licence</p>
-      <p>Fork me on
-        <a href="https://github.com/paulaylingdev/blogsite">GitHub</a>
-      </p>
-    </section>
-    <section>
-      <p>Created by Paul Ayling</p>
-      <p>Insert Social Networking</p>
-    </section>
-  </footer>
+    <main class="container">
+        {% block body %}
+        <h1>Blogsite</h1>
+        {% endblock %}
+        <hr>
+        <footer class="row">
+            <section class="col-md-6">
+                <p>Powered by <a href="http://flask.pocoo.org">Flask</a></p>
+                <p>Licence</p>
+                <p>Fork me on
+                    <a href="https://github.com/paulaylingdev/blogsite">GitHub</a>
+                </p>
+            </section>
+            <section class="col-md-6">
+                <p>Created by Paul Ayling</p>
+                <p>Insert Social Networking</p>
+            </section>
+        </footer>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    </main>
 </body>
+
 </html>
