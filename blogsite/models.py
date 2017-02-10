@@ -2,6 +2,12 @@
 from . import db
 from datetime import datetime
 
+# Many To Many Relationship Table for Blog Posts to Tags
+tags = db.Table('tags',
+                db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
+                db.Column('post_id', db.Integer, db.ForeignKey('post_id'))
+                )
+
 
 class Post(db.Model):
     """Model representing a blog post.
@@ -14,22 +20,22 @@ class Post(db.Model):
     body : SQLAlchemy.Column
     pub_date : SQLAlchemy.Column
         Date and Time of Post creation
-    category_id : SQLAlchemy.Column
-        Foreign Key ID to Category
-    category : SQLAlchemy.relationship
-        Category object that relates to this Post
+    tag_id : SQLAlchemy.Column
+        Foreign Key ID to tag
+    tags : SQLAlchemy.relationship
+        tag object that relates to this Post
     """
 
     # Columns
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    title = db.Column(db.String(128))
-    body = db.Column(db.String(4096))
-    pub_date = db.Column(db.DateTime)
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-    category = db.relationship('Category',
-                               backref=db.backref('posts', lazy='dynamic'))
+    title = db.Column(db.String(128), nullable=False)
+    body = db.Column(db.String(4096), nullable=False)
+    pub_date = db.Column(db.DateTime, nullable=False)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tag.id'), nullable=True)
+    tags = db.relationship('Tag', secondary=tags,
+                           backref=db.backref('posts', lazy='dynamic'))
 
-    def __init__(self, title, body, category, pub_date=None):
+    def __init__(self, title, body, tags=None, pub_date=None):
         """Constructor for Post.
 
         Parameters
@@ -38,14 +44,14 @@ class Post(db.Model):
             Title/Summary of post
         body : String
             Contents
-        category : Category
-            Category object blog post is related to
+        tags : tag, optional
+            tag objects blog post is related to
         pub_date : DateTime, optional
             Publish date of blog post
         """
         self.title = title
         self.body = body
-        self.category = category
+        self.tags = tags
         if pub_date is None:
             pub_date = datetime.utcnow()
         self.pub_date = pub_date
@@ -55,8 +61,8 @@ class Post(db.Model):
         return '<Post %r:%r>' % (self.id, self.title)
 
 
-class Category(db.Model):
-    """Model to represent a overall category.
+class Tag(db.Model):
+    """Model to represent a overall tag.
 
     Attributes
     ----------
@@ -66,18 +72,18 @@ class Category(db.Model):
 
     # Columns
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(128))
+    name = db.Column(db.String(128), unique=True)
 
     def __init__(self, name):
-        """Constructor for Category.
+        """Constructor for Tag.
 
         Parameters
         ----------
         name : String
-            Name of new category
+            Name of new tag
         """
         self.name = name
 
     def __repr__(self):
         """Representation."""
-        return '<Category %r>' % self.name
+        return '<Tag %r>' % self.name
