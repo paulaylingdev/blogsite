@@ -8,7 +8,9 @@
   {{ super() }}
 
   {% for post in posts %}
+  <hr>
   <h2>{{ post.title }}</h2>
+  <hr>
   <p>{{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}</p>
     {% for tag in post.tags %}
     <span>{{ tag.name }}<span>
