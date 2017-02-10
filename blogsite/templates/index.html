@@ -5,13 +5,15 @@
 
 {% block body %}
 
-{{ super() }}
+  {{ super() }}
 
-{% for post in posts %}
-<h2>{{ post.title }}</h2>
-<p>{{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}</p>
-<p>{{ post.category.name }}</p>
-<p>{{ post.body }}</p>
-{% endfor %}
+  {% for post in posts %}
+  <h2>{{ post.title }}</h2>
+  <p>{{ post.pub_date.strftime('%Y-%m-%d %H:%M') }}</p>
+    {% for tag in post.tags %}
+    <span>{{ tag.name }}<span>
+    {% endfor %}
+  <p>{{ post.body }}</p>
+  {% endfor %}
 
 {% endblock %}

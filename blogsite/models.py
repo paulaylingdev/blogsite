@@ -5,7 +5,7 @@ from datetime import datetime
 # Many To Many Relationship Table for Blog Posts to Tags
 tags = db.Table('tags',
                 db.Column('tag_id', db.Integer, db.ForeignKey('tag.id')),
-                db.Column('post_id', db.Integer, db.ForeignKey('post_id'))
+                db.Column('post_id', db.Integer, db.ForeignKey('post.id'))
                 )
 
 
@@ -51,7 +51,11 @@ class Post(db.Model):
         """
         self.title = title
         self.body = body
+
+        if tags is None:
+            tags = []
         self.tags = tags
+
         if pub_date is None:
             pub_date = datetime.utcnow()
         self.pub_date = pub_date
@@ -68,6 +72,9 @@ class Tag(db.Model):
     ----------
     id : SQLAlchemy.Column
     name : SQLAlchemy.Column
+    posts : SQLAlchemy.orm.dynamic.AppenderBaseQuery
+        Defined in Posts Class
+        Allows to see what posts have this tag
     """
 
     # Columns
