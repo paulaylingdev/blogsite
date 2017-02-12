@@ -1,0 +1,3 @@
+graft blogsite/templates
+graft blogsite/static
+include readme.md

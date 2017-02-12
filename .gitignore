@@ -1,4 +1,6 @@
 venv
 instance
+/dist/
 *.pyc
 *.db
+/*.egg-info
