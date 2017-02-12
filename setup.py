@@ -11,7 +11,7 @@ def readme():
 
 setup(
     name='blogsite',
-    version='0.1',
+    version='0.1.0',
     description='Minimal blogging website',
     long_description=readme(),
     classifiers=[
@@ -27,7 +27,7 @@ setup(
     keywords='blog website flask minimal',
     url='https://github.com/paulaylingdev/blogsite',
     author='Paul Ayling',
-    author_email='paulayling.dev@gmail.com',
+    author_email='paulayling1@hotmail.com',
     license='MIT',
     packages=['blogsite'],
     include_package_data=True,
