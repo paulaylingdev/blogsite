@@ -9,27 +9,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 </head>
 
-<body>
-    <main class="container">
-        {% block body %}
-        <h1>Blogsite</h1>
-        {% endblock %}
+<body class="container">
+    <header>
+        <h1 class="display-3">Blogsite</h1>
         <hr>
-        <footer class="row">
-            <section class="col-md-6">
-                <p>Powered by <a href="http://flask.pocoo.org">Flask</a></p>
-                <p>Licence</p>
-                <p>Fork me on
-                    <a href="https://github.com/paulaylingdev/blogsite">GitHub</a>
-                </p>
-            </section>
-            <section class="col-md-6">
-                <p>Created by Paul Ayling</p>
-                <p>Insert Social Networking</p>
-            </section>
-        </footer>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    </header>
+
+    <main class="row">
+        <section class="col-md-10">
+            {% block body %}{% endblock %}
+        </section>
+        <aside class="col-md-2">
+            <nav></nav>
+        </aside>
     </main>
+
+    <hr>
+    <footer class="row">
+        <section class="col-md-6">
+            <p>Powered by <a href="http://flask.pocoo.org">Flask</a></p>
+            <p>MIT Licence Copyright (c) 2017 Paul Ayling</p>
+            <p>Fork me on
+                <a href="https://github.com/paulaylingdev/blogsite">GitHub</a>
+            </p>
+        </section>
+        <section class="col-md-6 text-md-right">
+            <p>Created by Paul Ayling</p>
+            <p>Insert Social Networking</p>
+        </section>
+    </footer>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 </body>
 
 </html>

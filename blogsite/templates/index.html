@@ -8,14 +8,19 @@
   {{ super() }}
 
   {% for post in posts %}
-  <hr>
-  <h2>{{ post.title }}</h2>
-  <hr>
-  <p>{{ post.pub_date.strftime('%H:%M %d %B %Y') }}</p>
-    {% for tag in post.tags %}
-    <span>{{ tag.name }}<span>
-    {% endfor %}
-  <p>{{ post.body }}</p>
+  <article>
+    <section class="row">
+      <h2 class="col-md-6 text-capitalize">{{ post.title }}</h2>
+      <h5 class="col-md-6 text-md-right">{{ post.pub_date.strftime('%H:%M %d %B %Y') }}</h5>
+    </section>
+    <hr>
+      <section class="text-md-right">
+        {% for tag in post.tags %}
+        <span style="background-color: rgb(31, 171, 203);">{{ tag.name }}<span>
+        {% endfor %}
+      </section>
+    <p class="text-justify">{{ post.body }}</p>
+  </article>
   {% endfor %}
 
 {% endblock %}
