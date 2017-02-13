@@ -6,7 +6,8 @@ from .. import app
 bundles = {
     'blogsite_css': Bundle(
         'css/style.css',
-        output="gen/index.css"
+        output="gen/style.css",
+        filters='cssmin'
     )
 }
 

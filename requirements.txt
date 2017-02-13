@@ -1,5 +1,6 @@
 appdirs==1.4.0
 click==6.7
+cssmin==0.2.0
 Flask==0.12
 Flask-Assets==0.12
 Flask-SQLAlchemy==2.1
