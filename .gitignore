@@ -2,6 +2,7 @@ venv
 instance
 gen
 .webassets-cache
+__pycache__
 /dist/
 *.pyc
 *.db
