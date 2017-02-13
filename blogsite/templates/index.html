@@ -15,7 +15,7 @@
     <hr>
       <section class="text-md-right">
         {% for tag in post.tags %}
-        <span style="background-color: rgb(31, 171, 203);margin-left: 10px; border-style: solid; border-radius: 25%;">{{ tag.name }}</span>
+        <span class="tag">{{ tag.name }}</span>
         {% endfor %}
       </section>
     <p class="text-justify">{{ post.body }}</p>

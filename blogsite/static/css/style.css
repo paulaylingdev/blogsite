@@ -1,0 +1,14 @@
+.container {
+    background-color: #607D8B;
+    color: #FAFAFA;
+}
+
+.tag {
+    background-color: #FFC107;
+    color: #212121;
+    margin-left: 10px;
+    border-style: solid;
+    border-radius: 25%;
+    border-width: medium;
+    padding: 5px;
+}

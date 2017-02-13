@@ -14,6 +14,8 @@ db = SQLAlchemy(app)
 
 # db object needs to exist before this
 from .views import views
+# app object needs to exist before this
+from .util import assets
 
 # Registering views blueprint
 app.register_blueprint(views)
