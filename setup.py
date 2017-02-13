@@ -32,6 +32,7 @@ setup(
     packages=['blogsite'],
     include_package_data=True,
     install_requires=[
+        'cssmin',
         'flask',
         'flask-sqlalchemy',
         'flask-assets',
