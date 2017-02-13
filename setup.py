@@ -34,5 +34,7 @@ setup(
     install_requires=[
         'flask',
         'flask-sqlalchemy',
+        'flask-assets',
+        'Flask-HTMLmin',
     ],
 )
