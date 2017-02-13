@@ -1,14 +1,29 @@
 .container {
     background-color: #607D8B;
     color: #FAFAFA;
+    font-family: Verdana, Geneva, sans-serif;
 }
 
 .tag {
     background-color: #FFC107;
+    border-radius: 25%;
+    border-style: solid;
+    border-width: medium;
     color: #212121;
     margin-left: 10px;
-    border-style: solid;
-    border-radius: 25%;
-    border-width: medium;
     padding: 5px;
+}
+
+.tags {
+    margin-bottom: 10px;
+}
+
+a.hiddenlink:link {
+    color: #FAFAFA;
+    text-decoration: none;
+}
+
+a.hiddenlink:visited {
+    color: #FAFAFA;
+    text-decoration: none;
 }
