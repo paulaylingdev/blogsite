@@ -32,4 +32,5 @@ def posts_with_tag(tag_id):
 
 @views.errorhandler(404)
 def page_not_found(e):
+    """Custom view for HTTP Error 404."""
     return render_template('404.html'), 404
