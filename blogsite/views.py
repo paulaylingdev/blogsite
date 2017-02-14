@@ -28,3 +28,8 @@ def posts_with_tag(tag_id):
     summarytext = 'Blog posts containing tag : ' + tag.name
     return render_template('post_summarys.html', posts=tag.posts,
                            summarytext=summarytext)
+
+
+@views.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
