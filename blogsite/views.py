@@ -25,4 +25,6 @@ def single_post(post_id):
 def posts_with_tag(tag_id):
     """Create a view with all posts related to a tag."""
     tag = Tag.query.get_or_404(tag_id)
-    return render_template('post_summarys.html', posts=tag.posts)
+    summarytext = 'Blog posts containing tag : ' + tag.name
+    return render_template('post_summarys.html', posts=tag.posts,
+                           summarytext=summarytext)

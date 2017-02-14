@@ -4,6 +4,10 @@
 
 {% block body %}
 
+{% if summarytext %}
+<p><h3>{{summarytext}}</h3></p>
+{% endif %}
+
 {% for post in posts %}
 <article>
   <section class="row">
