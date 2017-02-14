@@ -4,6 +4,8 @@ gen
 .webassets-cache
 __pycache__
 /dist/
+.eggs
+build
 *.pyc
 *.db
 /*.egg-info

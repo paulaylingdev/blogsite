@@ -21,7 +21,8 @@ setup(
         'Intended Audience :: Education',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
-        'Programming Language :: Python :: 3.6'
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: News/Diary',
     ],
     keywords='blog website flask minimal',
@@ -37,5 +38,11 @@ setup(
         'flask-sqlalchemy',
         'flask-assets',
         'Flask-HTMLmin',
+    ],
+    setup_requires=[
+        'pytest-runner',
+    ],
+    tests_require=[
+        'pytest',
     ],
 )
