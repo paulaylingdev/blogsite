@@ -8,16 +8,20 @@
   <article>
     <section class="row">
       <h2 class="col-md-6 text-capitalize">{{ post.title }}</h2>
-      <p class="col-md-6 text-md-right">{{ post.pub_date.strftime('%H:%M %d %B %Y') }}</p>
+      <p class="col-md-6 text-md-right">
+        {{ post.pub_date.strftime('%H:%M %d %B %Y') }}</p>
     </section>
     <hr>
       <section class="text-md-right tags">
         {% for tag in post.tags %}
-        <span class="tag"><a href="/tag/{{tag.id}}">{{ tag.name }}</a></span>
+        <span class="tag">
+          <a href="/tag/{{tag.id}}">{{ tag.name }}</a>
+        </span>
         {% endfor %}
       </section>
     <p class="text-justify">{{ post.body }}</p>
   </article>
+  <hr>
   {% endfor %}
 
 {% endblock %}

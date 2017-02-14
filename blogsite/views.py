@@ -11,18 +11,18 @@ views = Blueprint('views', __name__)
 def index():
     """The index page route."""
     posts = Post.query.order_by(desc(Post.pub_date)).all()
-    return render_template('index.html', posts=posts)
+    return render_template('posts.html', posts=posts)
 
 
 @views.route('/post/<int:post_id>')
 def single_post(post_id):
     """Create a view with a single blog post on it."""
     post = Post.query.get_or_404(post_id)
-    return render_template('index.html', posts=[post])
+    return render_template('posts.html', posts=[post])
 
 
 @views.route('/tag/<int:tag_id>')
 def posts_with_tag(tag_id):
     """Create a view with all posts related to a tag."""
     tag = Tag.query.get_or_404(tag_id)
-    return render_template('index.html', posts=tag.posts)
+    return render_template('post_summarys.html', posts=tag.posts)
