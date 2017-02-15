@@ -1,8 +1,6 @@
 """Collection of Models used in blogsite."""
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
-db = SQLAlchemy()
+from .database import db
 
 # Many To Many Relationship Table for Blog Posts to Tags
 tags = db.Table('tags',

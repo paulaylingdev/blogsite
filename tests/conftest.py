@@ -1,9 +1,10 @@
+"""conftest for pytest."""
 import os
 import tempfile
 import pytest
 
 from blogsite.factory import create_app
-from blogsite.models import db as _db
+from blogsite.database import db as _db
 
 
 TESTDB = 'test_project.db'
@@ -50,7 +51,7 @@ def db(app, request):
 
 @pytest.fixture(scope='function')
 def session(db, request):
-    """Creates a new database session for a test."""
+    """Create a new database session for a test."""
     connection = db.engine.connect()
     transaction = connection.begin()
 
