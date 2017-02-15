@@ -1,7 +1,6 @@
 """Flask Assests bundles for packages."""
 
 from flask_assets import Bundle, Environment
-from .. import app
 
 bundles = {
     'blogsite_css': Bundle(
@@ -11,6 +10,6 @@ bundles = {
     )
 }
 
-assets = Environment(app)
+assets = Environment()
 
 assets.register(bundles)
