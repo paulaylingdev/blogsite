@@ -1,4 +1,6 @@
+"""Database for the application."""
 from flask_sqlalchemy import SQLAlchemy, SignallingSession, SessionBase
+from flask_bcrypt import Bcrypt
 
 
 class _SignallingSession(SignallingSession):
@@ -37,3 +39,4 @@ class _SQLAlchemy(SQLAlchemy):
 
 
 db = _SQLAlchemy()
+app_bcrypt = Bcrypt()

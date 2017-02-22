@@ -16,8 +16,9 @@ def create_app(name, settings_override=None):
         app.config.update(settings_override)
 
     # Init the database handler using the flask application
-    from .database import db
+    from .database import db, app_bcrypt
     db.init_app(app)
+    app_bcrypt.init_app(app)
 
     # Init the flask assets extension object
     from .util.assets import assets
