@@ -14,6 +14,12 @@ def index():
     return render_template('posts.html', posts=posts)
 
 
+@views.route('/login')
+def login():
+    """Present login form to user."""
+    return render_template('login.html')
+
+
 @views.route('/post/<int:post_id>')
 def single_post(post_id):
     """Create a view with a single blog post on it."""
