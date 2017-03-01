@@ -3,10 +3,13 @@ from flask import Flask
 from flask_htmlmin import HTMLMIN
 
 
-def create_app(name, settings_override=None):
+def create_app(name, settings_override=None, templates_folder=None):
     """Factory method for creating a application."""
     # Setting up flask application object
-    app = Flask(name, instance_relative_config=True)
+    if templates_folder is None:
+        app = Flask(name, instance_relative_config=True)
+    else:
+        app = Flask(name, instance_relative_config=True, template_folder=templates_folder)
 
     # Configuration settings reading
     app.config.from_object('config')

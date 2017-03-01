@@ -5,6 +5,7 @@ import pytest
 
 from blogsite.factory import create_app
 from blogsite.database import db as _db
+from blogsite.util.assets import assets
 
 
 TESTDB = 'test_project.db'
@@ -19,17 +20,27 @@ def app(request):
         'TESTING': True,
         'SQLALCHEMY_DATABASE_URI': TEST_DATABASE_URI
     }
-    app = create_app(__name__, settings_override)
+    app = create_app(__name__, settings_override, "../blogsite/templates")
 
     # Establish an application context before running the tests.
     ctx = app.app_context()
     ctx.push()
+
+    # Allows assets to be found under blogsite/static.
+    assets.load_path = [os.path.join(
+        os.path.dirname(os.path.dirname(__file__)), "blogsite", "static")]
 
     def teardown():
         ctx.pop()
 
     request.addfinalizer(teardown)
     return app
+
+
+@pytest.fixture(scope="session")
+def test_app(app):
+    """Create a test app client."""
+    return app.test_client()
 
 
 @pytest.fixture(scope='session')
