@@ -11,7 +11,7 @@ tags = db.Table('tags',
 
 
 class User(db.Model):
-    """Model represnting a user.
+    """Model representing a user.
 
     Attributes
     ----------
@@ -29,7 +29,15 @@ class User(db.Model):
     email = db.Column(db.String(128), unique=True)
 
     def __init__(self, username, password, email):
-        """Constructor for User."""
+        """Constructor for User.
+
+        Parameters
+        ----------
+        username : String
+        password : String
+            Plaintext of password.
+        email : String
+        """
         self.username = username
         self.password = password
         self.email = email
