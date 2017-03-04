@@ -1,6 +1,8 @@
-# blogsite
+blogsite
+--------
 
-## Running server
+Running server
+--------------
 
 ```
 venv\scripts\activate.bat
@@ -8,7 +10,8 @@ set FLASK_APP=run.py
 flask run
 ```
 
-## Creating database
+Creating database
+-----------------
 
 ```
 venv\script\activate.bat
