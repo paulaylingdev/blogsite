@@ -9,4 +9,4 @@ class TestIndex:
     def test_index(self, test_app):
         """Test that the index returns a html doc."""
         rv = test_app.get('/')
-        assert "<!DOCTYPE html>" in rv.data
+        assert b'<!DOCTYPE html>' in rv.data
