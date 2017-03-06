@@ -19,7 +19,19 @@
         <hr>
     </header>
 
-    <main class="row">
+    {% with messages= get_flashed_messages() %}
+        {% if messages %}
+            <section class="alert alert-warning">
+                <ul class=flashes>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
+    {% endwith %}
+
+    <main>
         {% block body %}{% endblock %}
     </main>
 

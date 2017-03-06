@@ -1,6 +1,8 @@
 """The views of the blogsite application."""
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, redirect, url_for, flash
 from sqlalchemy import desc
+
+from .forms import UsernamePasswordForm
 from .models import Post, Tag
 
 # Creating the views blueprint
@@ -14,10 +16,15 @@ def index():
     return render_template('posts.html', posts=posts)
 
 
-@views.route('/login')
+@views.route('/login', methods=["GET", "POST"])
 def login():
     """Present login form to user."""
-    return render_template('login.html')
+    form = UsernamePasswordForm()
+    if form.validate_on_submit():
+        return redirect(url_for('views.index'))
+    else:
+        flash_errors(form)
+    return render_template('login.html', form=form)
 
 
 @views.route('/post/<int:post_id>')
@@ -40,3 +47,13 @@ def posts_with_tag(tag_id):
 def page_not_found(e):
     """Custom view for HTTP Error 404."""
     return render_template('404.html'), 404
+
+
+def flash_errors(form):
+    """Take a form and flash its errors."""
+    for field, errors in form.errors.items():
+        for error in errors:
+            flash(u"Error in the %s field - %s" % (
+                getattr(form, field).label.text,
+                error
+            ))

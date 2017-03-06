@@ -3,9 +3,18 @@
 {% block title %}blogsite - login{% endblock %}
 
 {% block body %}
-<section class="col-md-12">
-    <form action="POST">
-        <input type="text">
-    </form>
+<section class="row justify-content-center">
+    <section class="col-md-4 justify-content-center">
+        <form action="{{ url_for('views.login') }}" method="post">
+            <section class="form-group">
+                {{ form.username.label }}: {{ form.username(class_="form-control") }}
+                <br>
+                {{ form.password.label }}: {{ form.password(class_="form-control") }}
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                {{ form.csrf_token }}
+            </section>
+        </form>
+    </section>
 </section>
 {% endblock %}
