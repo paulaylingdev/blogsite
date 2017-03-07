@@ -10,6 +10,7 @@ Flask-Bcrypt==0.7.1
 Flask-HTMLmin==1.2
 Flask-SQLAlchemy==2.1
 Flask-WTF==0.14.2
+gunicorn==19.7.0
 htmlmin==0.1.10
 itsdangerous==0.24
 Jinja2==2.9.5
