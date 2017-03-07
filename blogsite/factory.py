@@ -13,7 +13,9 @@ def create_app(name, settings_override=None, templates_folder=None):
 
     # Configuration settings reading
     app.config.from_object('config')
-    app.config.from_pyfile('config.py')
+    # Try to read instance config, print warning if it doesn't exist.
+    if not app.config.from_pyfile('config.py', silent=True):
+        print("Warning! Default Configuration in use, please define a configuration file under a instance folder")
 
     if settings_override:
         app.config.update(settings_override)
