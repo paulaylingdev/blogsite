@@ -38,6 +38,8 @@ setup(
         'flask-sqlalchemy',
         'flask-assets',
         'Flask-HTMLmin',
+        'Flask-WTF',
+        'Flask-Bcrypt',
     ],
     setup_requires=[
         'pytest-runner',
