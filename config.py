@@ -1,7 +1,7 @@
 """Application configuration file."""
 # Flask
 DEBUG = False
-SECRET_KEY = ''
+SECRET_KEY = 'CHANGEME'
 
 # Flask SQLAlchemy
 SQLALCHEMY_DATABASE_URI = "sqlite:///foo.db"
@@ -15,4 +15,4 @@ MINIFY_PAGE = True
 BCRYPT_LOG_ROUNDS = 14
 
 # Flask-WTF
-WTF_CSRF_SECRET_KEY = ''
+WTF_CSRF_SECRET_KEY = 'CHANGEME'
