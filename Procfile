@@ -1,1 +1,1 @@
-web: gunicorn run:app --logfile -
+web: gunicorn -b 0.0.0.0:5000 run:app
