@@ -8,5 +8,7 @@ __pycache__
 build
 *.pyc
 *.db
+*.egg
 /*.egg-info
 .idea/
+.pylintrc
