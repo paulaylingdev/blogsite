@@ -21,6 +21,7 @@ def login():
     """Present login form to user."""
     form = UsernamePasswordForm()
     if form.validate_on_submit():
+        # TODO - Login User if valid account
         return redirect(url_for('views.index'))
     else:
         flash_errors(form)
