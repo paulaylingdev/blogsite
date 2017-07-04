@@ -2,7 +2,7 @@
 from flask import Blueprint, render_template, redirect, url_for, flash
 from sqlalchemy import desc
 
-from .forms import UsernamePasswordForm
+from .forms import UsernamePasswordForm, UsernameEmailPasswordForm
 from .models import Post, Tag
 
 # Creating the views blueprint
@@ -26,7 +26,18 @@ def login():
     else:
         flash_errors(form)
     return render_template('login.html', form=form)
-
+    
+    
+@views.route('/register', methods=["GET", "POST"])
+def register():
+    """Present a register form to the user."""
+    form = UsernameEmailPasswordForm()
+    if form.validate_on_submit():
+        # TODO - Register User
+        return redirect(url_for('views.index'))
+    else:
+        flash_errors(form)
+    return render_template('register.html', form=form)
 
 @views.route('/post/<int:post_id>')
 def single_post(post_id):
