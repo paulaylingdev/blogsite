@@ -7,6 +7,8 @@
     <section class="col-md-4 justify-content-center">
         <form action="{{ url_for('views.register') }}" method="post">
             <section class="form-group">
+                <legend>Register a new Account</legend>
+                <br>
                 {{ form.username.label }}: {{ form.username(class_="form-control") }}
                 <br>
                 {{ form.email.label }}: {{ form.email(class_="form-control") }}
