@@ -2,8 +2,10 @@
 from flask import Blueprint, render_template, redirect, url_for, flash
 from sqlalchemy import desc
 
+from .database import db
 from .forms import UsernamePasswordForm, UsernameEmailPasswordForm
-from .models import Post, Tag
+from .models import Post, Tag, User
+from .util.security import getTimedSerializer
 
 # Creating the views blueprint
 views = Blueprint('views', __name__)
@@ -38,6 +40,12 @@ def register():
     else:
         flash_errors(form)
     return render_template('register.html', form=form)
+    
+def create_user(username, password, email):
+    new_user = User(username, password, email)
+    db.session.add(new_user)
+    db.session.commit()
+    
 
 @views.route('/post/<int:post_id>')
 def single_post(post_id):
